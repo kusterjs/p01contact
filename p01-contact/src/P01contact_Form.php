@@ -430,15 +430,15 @@ class P01contactForm
     private function mailHeaders($name, $email, $mime_boundary)
     {
         $encoded_name = $this->encodeHeader($name);
-        $headers  = "From: $encoded_name <no-reply@" . SERVERNAME . ">\n";
+        $headers  = "From: $encoded_name <no-reply@" . SERVERNAME . ">\r\n";
         if ($email) {
-            $headers .= "Reply-To: $encoded_name <$email>\n";
+            $headers .= "Reply-To: $encoded_name <$email>\r\n";
             $headers .= "Return-Path: $encoded_name <$email>";
         }
-        $headers .= "\n";
-        $headers .= "MIME-Version: 1.0\n";
-        $headers .= "Content-type: multipart/alternative; boundary=\"$mime_boundary\"\n";
-        $headers .= "X-Mailer: PHP/" . phpversion() . "\n";
+        $headers .= "\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: multipart/alternative; boundary=\"$mime_boundary\"\r\n";
+        $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
         return $headers;
     }
 
